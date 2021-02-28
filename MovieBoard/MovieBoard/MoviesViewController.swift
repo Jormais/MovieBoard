@@ -48,12 +48,13 @@ class MovieViewController : UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MovieTableViewCell
         if isFiltering{
-            cell.textLabel?.text = filteredFilms[indexPath.row]
+            cell.title.text = filteredFilms[indexPath.row]
+            cell.subtitle.text = "prueba jajajaj"
             return cell
         }
-        cell.textLabel?.text = films[indexPath.row]
+        cell.title.text = films[indexPath.row]
         return cell
     }
     
