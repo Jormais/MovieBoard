@@ -20,11 +20,11 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" id="Lmw-Hf-qXJ">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="Lmw-Hf-qXJ">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Lmw-Hf-qXJ" id="dP9-Je-IRF">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -51,26 +51,104 @@
             </objects>
             <point key="canvasLocation" x="-306" y="82"/>
         </scene>
-        <!--View Controller-->
+        <!--Movie Detail View Controller-->
         <scene sceneID="Pnq-GG-8Bv">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="Os3-wh-grh" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="Os3-wh-grh" customClass="MovieDetailViewController" customModule="MovieBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u5T-bb-iVJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yiE-b1-FhZ">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="film detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sdx-7f-SOO">
+                                        <rect key="frame" x="160.5" y="53" width="93" height="24"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <color key="textColor" red="1" green="0.96555779429999999" blue="0.88794948630000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2VI-8b-5gH">
+                                        <rect key="frame" x="26" y="50" width="56" height="27"/>
+                                        <state key="normal" title="Back">
+                                            <color key="titleColor" red="1" green="0.96555779429999999" blue="0.88794948630000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="toBackView" destination="Os3-wh-grh" eventType="touchDown" id="7dM-5p-ky9"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <constraints>
+                                    <constraint firstItem="2VI-8b-5gH" firstAttribute="leading" secondItem="yiE-b1-FhZ" secondAttribute="leading" constant="26" id="BOG-jB-eIr"/>
+                                    <constraint firstItem="Sdx-7f-SOO" firstAttribute="centerX" secondItem="yiE-b1-FhZ" secondAttribute="centerX" id="G6X-Fv-9nY"/>
+                                    <constraint firstAttribute="height" constant="100" id="Pck-5D-ps0"/>
+                                    <constraint firstItem="Sdx-7f-SOO" firstAttribute="leading" relation="lessThanOrEqual" secondItem="2VI-8b-5gH" secondAttribute="trailing" constant="78.5" id="YtP-mO-HsG"/>
+                                    <constraint firstItem="2VI-8b-5gH" firstAttribute="top" secondItem="yiE-b1-FhZ" secondAttribute="top" constant="50" id="dOK-y3-igt"/>
+                                    <constraint firstAttribute="bottom" secondItem="Sdx-7f-SOO" secondAttribute="bottom" constant="23" id="maW-KQ-nUo"/>
+                                    <constraint firstAttribute="bottom" secondItem="2VI-8b-5gH" secondAttribute="bottom" constant="23" id="pyC-fp-iXy"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F5G-Mn-uZP">
+                                <rect key="frame" x="50" y="297" width="72" height="48"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pBZ-OM-LeW">
+                                <rect key="frame" x="101" y="376" width="281" height="145"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="pBZ-OM-LeW" secondAttribute="height" multiplier="281:145" id="GwP-eY-xUR"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OrZ-OL-FQ2">
+                                <rect key="frame" x="0.0" y="100" width="414" height="181"/>
+                                <color key="backgroundColor" red="0.57414853570000002" green="0.57416242360000003" blue="0.57415497299999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="OrZ-OL-FQ2" secondAttribute="height" multiplier="414:181" id="1ic-Me-qd5"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="89g-fl-iZg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="yiE-b1-FhZ" firstAttribute="trailing" secondItem="89g-fl-iZg" secondAttribute="trailing" id="33d-LB-fLv"/>
+                            <constraint firstItem="OrZ-OL-FQ2" firstAttribute="leading" secondItem="89g-fl-iZg" secondAttribute="leading" id="67W-II-c0q"/>
+                            <constraint firstItem="OrZ-OL-FQ2" firstAttribute="trailing" secondItem="89g-fl-iZg" secondAttribute="trailing" id="7W9-jt-pCQ"/>
+                            <constraint firstItem="OrZ-OL-FQ2" firstAttribute="top" secondItem="yiE-b1-FhZ" secondAttribute="bottom" id="DN0-U0-IfK"/>
+                            <constraint firstItem="F5G-Mn-uZP" firstAttribute="leading" secondItem="89g-fl-iZg" secondAttribute="leading" constant="50" id="WYG-tE-Ww9"/>
+                            <constraint firstItem="yiE-b1-FhZ" firstAttribute="top" secondItem="u5T-bb-iVJ" secondAttribute="top" id="YXP-1P-dXu"/>
+                            <constraint firstItem="89g-fl-iZg" firstAttribute="trailing" secondItem="pBZ-OM-LeW" secondAttribute="trailing" constant="32" id="b0v-Cb-0m0"/>
+                            <constraint firstItem="F5G-Mn-uZP" firstAttribute="top" secondItem="OrZ-OL-FQ2" secondAttribute="bottom" constant="16" id="h4g-pf-Eug"/>
+                            <constraint firstItem="pBZ-OM-LeW" firstAttribute="leading" secondItem="89g-fl-iZg" secondAttribute="leading" constant="101" id="kfS-XE-xDw"/>
+                            <constraint firstItem="yiE-b1-FhZ" firstAttribute="leading" secondItem="89g-fl-iZg" secondAttribute="leading" id="llR-Wz-1EW"/>
+                            <constraint firstItem="pBZ-OM-LeW" firstAttribute="top" secondItem="F5G-Mn-uZP" secondAttribute="bottom" constant="31" id="uhV-uO-Wyg"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="YGH-Vl-U5t"/>
+                    <connections>
+                        <outlet property="titleMovie" destination="F5G-Mn-uZP" id="fFA-oQ-0sF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m74-5e-Ghj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="672" y="82"/>
+            <point key="canvasLocation" x="671.01449275362324" y="81.696428571428569"/>
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

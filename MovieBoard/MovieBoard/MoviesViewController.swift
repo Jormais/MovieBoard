@@ -18,7 +18,12 @@ class MovieViewController : UIViewController, UITableViewDataSource, UITableView
         self.movieTable.dataSource = self
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "toDetail", let indexPath = movieTable.indexPathForSelectedRow, let detailController = segue.destination as? MovieDetailViewController
+        else {return}
+        
+        detailController.titleCell = array[indexPath.row]
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return array.count
